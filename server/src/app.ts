@@ -11,7 +11,6 @@ app.get("/health", (_req, res) => {
   res.status(200).json({ success: true, message: "Orders API is running" });
 });
 
-// Last resort: never leak stack traces to the client.
 app.use((error: unknown, _req: Request, res: Response, _next: NextFunction) => {
   console.error(error);
   res.status(500).json({ success: false, message: "Internal server error" });
