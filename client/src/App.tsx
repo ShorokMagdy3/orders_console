@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import CreateOrderForm from "./components/CreateOrderForm";
 import LoginForm from "./components/LoginForm";
 import OrdersList from "./components/OrdersList";
 import type { AuthUser } from "./types";
@@ -19,6 +20,9 @@ function App() {
     () => sessionStorage.getItem("token") ?? "",
   );
   const [user, setUser] = useState<AuthUser | null>(readSavedUser);
+  // Changing this key remounts the list: filters reset to "newest first"
+  // and the new order shows up on page 1.
+  const [listKey, setListKey] = useState(0);
 
   function handleLogin(newToken: string, newUser: AuthUser) {
     sessionStorage.setItem("token", newToken);
@@ -53,7 +57,17 @@ function App() {
         </button>
       </header>
 
-      <OrdersList token={token} user={user} onUnauthorized={logout} />
+      <CreateOrderForm
+        token={token}
+        onCreated={() => setListKey((k) => k + 1)}
+        onUnauthorized={logout}
+      />
+      <OrdersList
+        key={listKey}
+        token={token}
+        user={user}
+        onUnauthorized={logout}
+      />
     </main>
   );
 }
