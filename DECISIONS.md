@@ -27,5 +27,10 @@
 **Why I rejected it.** SQLite would be simpler to run (no server to install), and Postgres is stronger for reporting. But the main queries here are "list one table with filter/sort/search", which Mongo handles well with indexes, and the unique index for idempotency works the same. The cost: the "contains" search is harder than in SQL, so I limited search to prefix.
 
 ## AI tools
+I started from the project I had already built (login/auth, the models, and a first version of the idempotent create). I used an AI assistant (Claude) to review, fix and complete it. Claude wrote or changed:
 
-I used an AI assistant (Claude) to help review and finish this project: fixing the TypeScript errors, splitting the React code into components, writing the seed script and the README.
+- **Server:** the orders list query (indexes and prefix search), the admin-only `DELETE` route, the seed script for 50,000 orders, the error handler and `.env.example`.
+- **Auth review:** the fixes listed in the README (verified JWT, env secret, header-only token, server-side role check).
+- **Client (React):** splitting the UI into components, the debounce hook, cancelling stale requests, and keeping the `Idempotency-Key` in a ref.
+- **Design:** the CSS and the status badges.
+- **Docs and git:** drafts of `README.md` and `DECISIONS.md`, and the split of the work into commits.
