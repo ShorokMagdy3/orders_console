@@ -91,3 +91,7 @@ I would ask: *Why do you want them gone – is the list too cluttered, or is it 
 - **Orders created before the `customerNameLower` field existed** won't match name search; re-run `npm run seed:orders` on a fresh DB.
 - **Automated test framework:** the R2 proof is a script, not a vitest test.
 - **Runtime check:** I could not run MongoDB in my environment, so server and client were verified with the TypeScript compiler and ESLint, not by a full run. Please run the steps above once before submitting.
+
+
+## Screen recording:
+https://drive.google.com/drive/folders/1a1eVLpwGhYI4HL0S7POYHyzmeZVWuBFs?usp=sharing
