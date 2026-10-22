@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import LoginForm from "./components/LoginForm";
+import OrdersList from "./components/OrdersList";
 import type { AuthUser } from "./types";
 import "./App.css";
 
@@ -26,12 +27,13 @@ function App() {
     setUser(newUser);
   }
 
-  function logout() {
+  // useCallback: OrdersList has this in its effect dependencies.
+  const logout = useCallback(() => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user");
     setToken("");
     setUser(null);
-  }
+  }, []);
 
   if (!token || !user) {
     return <LoginForm onLogin={handleLogin} />;
@@ -50,6 +52,8 @@ function App() {
           Log out
         </button>
       </header>
+
+      <OrdersList token={token} user={user} onUnauthorized={logout} />
     </main>
   );
 }
