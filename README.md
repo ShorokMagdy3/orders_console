@@ -90,7 +90,7 @@ I would ask: *Why do you want them gone – is the list too cluttered, or is it 
 - **Contains-search:** only prefix search on name/email (index-friendly, documented above).
 - **Orders created before the `customerNameLower` field existed** won't match name search; re-run `npm run seed:orders` on a fresh DB.
 - **Automated test framework:** the R2 proof is a script, not a vitest test.
-- **Testing:** I ran the app locally with 50,000 seeded orders and checked login, list, search, filters, sort and create by hand, and ran the parallel duplicate test. There is no automated test framework; the R2 proof is a script (`npm run test:concurrent-orders`).
+
 
 ## Screen recording:
 https://drive.google.com/drive/folders/1a1eVLpwGhYI4HL0S7POYHyzmeZVWuBFs?usp=sharing
