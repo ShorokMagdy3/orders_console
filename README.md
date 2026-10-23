@@ -79,7 +79,7 @@ In `sessionStorage`. It is cleared when the tab closes and it is never sent auto
 
 ## Product question – "Delete all cancelled orders"
 
-I would ask: *Why do you want them gone – is the list too cluttered, or is it a data/storage/legal reason?* and *Does anyone ever need cancelled orders later (refunds, disputes, accounting)?* If she can't answer, I'd propose a **"Hide cancelled"** filter (already available via the status filter) or an **archive** flag that can be undone, with deletion only for admins, one order at a time. Bulk delete is irreversible and one wrong click removes records the business may need.
+I would ask: *Why do you want them gone – is the list too cluttered, or is it a data/storage/legal reason?* and *Does anyone ever need cancelled orders later (refunds, disputes, accounting)?* If she can't answer, I'd propose a **"Hide cancelled"** toggle in the list (not built yet) or an **archive** flag that can be undone, with deletion only for admins, one order at a time. Bulk delete is irreversible and one wrong click removes records the business may need.
 
 ## What I skipped and why
 
